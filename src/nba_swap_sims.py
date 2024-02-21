@@ -431,7 +431,8 @@ class NBA_Swaptimizer_Sims:
         return player
     
     def get_live_scores(self):
-        game_date = datetime.datetime.now().date()
+        ###game_date = datetime.datetime.now().date()
+        game_date = "2024-02-14"
 
         team_id_to_abbreviation = {
             1610612737: 'ATL',
@@ -467,7 +468,8 @@ class NBA_Swaptimizer_Sims:
         }
 
         # Format the date into the string format the NBA API expects ('YYYY-MM-DD')
-        formatted_date = game_date.strftime('%Y-%m-%d')
+        ###formatted_date = game_date.strftime('%Y-%m-%d')
+        formatted_date = "2024-02-14"
 
         #formatted_date = '2023-11-07'
         headers= {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36',
@@ -480,29 +482,30 @@ class NBA_Swaptimizer_Sims:
         scoreboard_json = requests.get(scoreboard_url, headers=headers).json()
 
         # Assuming `data` is the JSON response parsed into a Python dictionary
-        games_info = scoreboard_json['resultSets'][0]['rowSet']
+        ###games_info = scoreboard_json['resultSets'][0]['rowSet']
         # print(scoreboard_json['resultSets'][0]['headers'])
         
-        # games_info = [
-        #     ['2023-11-06T00:00:00', 1, '0022300145', 2, '3rd Qtr             ', '20231106/GSWDET', 1610612765, 1610612744, '2023', 3, '3:20 ', None, 'BSDET', 'NBCSBA', 'Q3 3:20  - ', 'Little Caesars Arena', 0, 0],
-        #     ['2023-11-06T00:00:00', 2, '0022300146', 2, '3rd Qtr             ', '20231106/SASIND', 1610612754, 1610612759, '2023', 3, '8:51 ', None, 'BSIN', 'BSSW-SA', 'Q3 8:51  - ', 'Gainbridge Fieldhouse', 0, 0],
-        #     ['2023-11-06T00:00:00', 3, '0022300147', 2, '3rd Qtr             ', '20231106/DALORL', 1610612753, 1610612742, '2023', 3, '9:25 ', None, 'BSFL', 'BSSW-DAL', 'Q3 9:25  - ', 'Amway Center', 0, 0],
-        #     ['2023-11-06T00:00:00', 4, '0022300148', 2, '3rd Qtr             ', '20231106/WASPHI', 1610612755, 1610612764, '2023', 3, '7:50 ', None, 'NBCSP', 'MNMT', 'Q3 7:50  - ', 'Wells Fargo Center', 0, 0],
-        #     ['2023-11-06T00:00:00', 5, '0022300149', 2, 'Halftime            ', '20231106/MILBKN', 1610612751, 1610612749, '2023', 2, '     ', None, 'YES', 'BSWI', 'Q2       - ', 'Barclays Center', 0, 0],
-        #     ['2023-11-06T00:00:00', 6, '0022300150', 2, '2nd Qtr             ', '20231106/LALMIA', 1610612748, 1610612747, '2023', 2, '2:17 ', 'NBA TV', 'BSSUN', 'SPECSN', 'Q2 2:17  - NBA TV', 'Kaseya Center', 0, 0],
-        #     ['2023-11-06T00:00:00', 7, '0022300151', 2, 'Halftime            ', '20231106/LACNYK', 1610612752, 1610612746, '2023', 2, '     ', None, 'MSG', 'BSSC', 'Q2       - ', 'Madison Square Garden', 0, 0],
-        #     ['2023-11-06T00:00:00', 8, '0022300152', 2, '1st Qtr             ', '20231106/UTACHI', 1610612741, 1610612762, '2023', 1, '0:03 ', None, 'NBCSCH', 'KJZZ', 'Q1 0:03  - ', 'United Center', 0, 0],
-        #     ['2023-11-06T00:00:00', 9, '0022300153', 2, '1st Qtr             ', '20231106/SACHOU', 1610612745, 1610612758, '2023', 1, '1:21 ', None, 'SCHN', 'NBCSCA', 'Q1 1:21  - ', 'Toyota Center', 0, 0],
-        #     ['2023-11-06T00:00:00', 10, '0022300154', 2, '1st Qtr             ', '20231106/BOSMIN', 1610612750, 1610612738, '2023', 1, '1:53 ', None, 'BSN', 'NBCSB', 'Q1 1:53  - ', 'Target Center', 0, 0],
-        #     ['2023-11-06T00:00:00', 11, '0022300155', 2, 'End of 1st Qtr      ', '20231106/ATLOKC', 1610612760, 1610612737, '2023', 1, '     ', None, 'BSOK', 'BSSE-ATL', 'Q1       - ', 'Paycom Center', 0, 0],
-        #     ['2023-11-06T00:00:00', 12, '0022300156', 1, '9:00 pm ET', '20231106/NOPDEN', 1610612743, 1610612740, '2023', 0, '     ', None, 'ALT', 'BSNO', 'Q0       - ', 'Ball Arena', 0, 0]            
-        # ]
+        games_info = [
+            ['2024-02-14T00:00:00', 1, '0022300145', 2, '3rd Qtr             ', '20240214/MIAPHI', 1610612748, 1610612755, '2024', 3, '3:20 ', None, 'BSDET', 'NBCSBA', 'Q3 3:20  - ', 'Little Caesars Arena', 0, 0],
+            ['2024-02-14T00:00:00', 2, '0022300146', 2, '3rd Qtr             ', '20240214/ATLCHA', 1610612737, 1610612766, '2024', 3, '8:51 ', None, 'BSIN', 'BSSW-SA', 'Q3 8:51  - ', 'Gainbridge Fieldhouse', 0, 0],
+            ['2024-02-14T00:00:00', 3, '0022300147', 2, '3rd Qtr             ', '20240214/NYKORL', 1610612752, 1610612753, '2024', 3, '9:25 ', None, 'BSFL', 'BSSW-DAL', 'Q3 9:25  - ', 'Amway Center', 0, 0],
+            ['2024-02-14T00:00:00', 4, '0022300148', 2, '3rd Qtr             ', '20240214/INDTOR', 1610612754, 1610612761, '2024', 3, '7:50 ', None, 'NBCSP', 'MNMT', 'Q3 7:50  - ', 'Wells Fargo Center', 0, 0],
+            ['2024-02-14T00:00:00', 5, '0022300149', 2, 'Halftime            ', '20240214/CHICLE', 1610612741, 1610612739, '2024', 2, '     ', None, 'YES', 'BSWI', 'Q2       - ', 'Barclays Center', 0, 0],
+            ['2024-02-14T00:00:00', 6, '0022300150', 2, '2nd Qtr             ', '20240214/BKNBOS', 1610612751, 1610612738, '2024', 2, '2:17 ', 'NBA TV', 'BSSUN', 'SPECSN', 'Q2 2:17  - NBA TV', 'Kaseya Center', 0, 0],
+            ['2024-02-14T00:00:00', 7, '0022300151', 2, 'Halftime            ', '20240214/HOUMEM', 1610612745, 1610612763, '2024', 2, '     ', None, 'MSG', 'BSSC', 'Q2       - ', 'Madison Square Garden', 0, 0],
+            ['2024-02-14T00:00:00', 8, '0022300152', 2, '1st Qtr             ', '20240214/WASNOP', 1610612764, 1610612740, '2024', 1, '0:03 ', None, 'NBCSCH', 'KJZZ', 'Q1 0:03  - ', 'United Center', 0, 0],
+            ['2024-02-14T00:00:00', 9, '0022300153', 2, '8:30 pm ET', '20240214/SASDAL', 1610612759, 1610612742, '2024', 0, '     ', None, 'SCHN', 'NBCSCA', 'Q0       - ', 'Toyota Center', 0, 0],
+            ['2024-02-14T00:00:00', 10, '0022300154', 2, '9:00 pm ET', '20240214/SACDEN', 1610612758, 1610612743, '2024', 0, '     ', None, 'BSN', 'NBCSB', 'Q0       - ', 'Target Center', 0, 0],
+            ['2024-02-14T00:00:00', 11, '0022300155', 2, '9:00 pm ET', '20240214/LALUTA', 1610612747, 1610612762, '2024', 0, '     ', None, 'BSOK', 'BSSE-ATL', 'Q0       - ', 'Paycom Center', 0, 0],
+            ['2024-02-14T00:00:00', 12, '0022300156', 1, '9:00 pm ET', '20240214/DETPHX', 1610612765, 1610612756, '2024', 0, '     ', None, 'ALT', 'BSNO', 'Q0       - ', 'Ball Arena', 0, 0]            
+        ]
         # NBA regulation game length in minutes
         regulation_game_length = 48
         overtime_period_length = 5  # NBA overtime period length in minutes
 
         eastern = pytz.timezone('US/Eastern')
-        current_time_utc = datetime.datetime.now(timezone.utc)  # Current time in UTC
+        ###current_time_utc = datetime.datetime.now(timezone.utc)  # Current time in UTC
+        current_time_utc = eastern.localize(datetime.datetime(2024, 2, 14, 20, 5)).astimezone(pytz.utc)     # 2024-02-14 8:05pm EST
 
         for game in games_info:
             print(game)
@@ -576,7 +579,9 @@ class NBA_Swaptimizer_Sims:
             self.time_remaining_dict[home_team_abbreviation]['GameLocked'] = game_locked
             self.time_remaining_dict[visitor_team_abbreviation]['GameLocked'] = game_locked
             if game_locked == True:
-                current_day = datetime.datetime.now().date()
+                ###current_day = datetime.datetime.now().date()
+                current_day = datetime.datetime.strptime("2024-02-14", '%Y-%m-%d').date()
+                
                 self.time_remaining_dict[home_team_abbreviation]['GameTime'] = datetime.datetime.combine(current_day, datetime.time(0, 1))
                 self.time_remaining_dict[visitor_team_abbreviation]['GameTime'] = datetime.datetime.combine(current_day, datetime.time(0, 1))
             else:
@@ -1066,7 +1071,9 @@ class NBA_Swaptimizer_Sims:
         # Read projections into a dictionary
         with open(path, encoding="utf-8-sig") as file:
             reader = csv.DictReader(self.lower_first(file))
-            current_time = datetime.datetime.now()  # get the current time
+            ###current_time = datetime.datetime.now()  # get the current time
+            eastern = pytz.timezone('US/Eastern')
+            current_time = eastern.localize(datetime.datetime(2024, 2, 14, 20, 5)).astimezone(pytz.utc)     # 2024-02-14 8:05pm EST
             
             # current_time = datetime.datetime(2023, 10, 24, 20, 0) # testing time, such that LAL/DEN is locked
             #print(f"Current time (UTC): {current_time}")
